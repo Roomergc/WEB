@@ -1,33 +1,46 @@
-<?php include 'header.php'; ?>
+<?php 
+require_once 'config/bd.php';
+require_once 'includes/funciones.php';
+include 'includes/header.php';
+
+$db = new Database();
+$conn = $db->conectar();
+
+$id = isset($_GET['id']) ? $_GET['id'] : 0;
+$producto = obtenerProducto($conn, $id);
+
+if (!$producto) {
+    header('Location: productos.php');
+    exit;
+}
+
+// Procesar formulario de agregar al carrito
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $cantidad = isset($_POST['cantidad']) ? (int)$_POST['cantidad'] : 1;
+    agregarAlCarrito($id, $cantidad);
+    header('Location: carrito.php');
+    exit;
+}
+?>
 
 <div class="container">
     <div class="flex">
-        <?php
-        // Aquí iría la lógica para obtener los detalles del producto
-        $producto = [
-            'id' => 1,
-            'nombre' => 'Producto de Ejemplo',
-            'descripcion' => 'Esta es una descripción detallada del producto. Aquí puedes incluir todas las características y beneficios que ofrece el producto.',
-            'precio' => 99.99,
-            'imagen' => 'producto_ejemplo.jpg'
-        ];
-        ?>
-        
         <div class="product-image">
-            <img src="img/<?php echo $producto['imagen']; ?>" alt="<?php echo $producto['nombre']; ?>">
+            <img src="img/productos/<?php echo $producto['imagen']; ?>" 
+                 alt="<?php echo $producto['nombre']; ?>">
         </div>
         
         <div class="product-details">
             <h1><?php echo $producto['nombre']; ?></h1>
             <p><?php echo $producto['descripcion']; ?></p>
             <p class="price">$<?php echo number_format($producto['precio'], 2); ?></p>
-            <form action="carrito.php" method="post">
-                <input type="hidden" name="producto_id" value="<?php echo $producto['id']; ?>">
-                <input type="number" name="cantidad" value="1" min="1">
+            <form action="" method="post">
+                <input type="number" name="cantidad" value="1" min="1" 
+                       max="<?php echo $producto['stock']; ?>">
                 <button type="submit" class="btn">Añadir al Carrito</button>
             </form>
         </div>
     </div>
 </div>
 
-<?php include 'footer.php'; ?>
+<?php include 'includes/footer.php'; ?>

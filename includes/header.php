@@ -1,30 +1,37 @@
-<?php require_once 'config/config.php'; ?>
+// includes/header.php
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo SITE_NAME; ?></title>
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/styles.css">
+    <title>City Store</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="container">
-                <a href="<?php echo BASE_URL; ?>" class="logo">City Store</a>
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <img src="/img/Logo.jpg" alt="City Store Logo" class="logo-image">
+                </a>
                 <div class="search-bar">
-                    <input type="text" placeholder="Buscar productos...">
+                    <form action="/productos.php" method="GET">
+                        <input type="search" name="buscar" placeholder="Buscar productos...">
+                        <button type="submit">Buscar</button>
+                    </form>
                 </div>
-                <div class="nav-links">
-                    <?php if(isLoggedIn()): ?>
-                        <a href="<?php echo BASE_URL; ?>/profile">Mi Cuenta</a>
-                        <a href="<?php echo BASE_URL; ?>/cart">Carrito</a>
-                        <a href="<?php echo BASE_URL; ?>/logout">Salir</a>
-                    <?php else: ?>
-                        <a href="<?php echo BASE_URL; ?>/login">Iniciar Sesión</a>
-                        <a href="<?php echo BASE_URL; ?>/register">Registrarse</a>
-                    <?php endif; ?>
-                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="/productos.php">Categorías</a></li>
+                        <li><a href="/productos.php?oferta=1">Ofertas</a></li>
+                        <li><a href="/carrito.php" class="cart-link">
+                            Carrito
+                            <?php if (isset($_SESSION['carrito']) && count($_SESSION['carrito']) > 0): ?>
+                                <span class="cart-count"><?php echo count($_SESSION['carrito']); ?></span>
+                            <?php endif; ?>
+                        </a></li>
+                    </ul>
+                </nav>
             </div>
-        </nav>
+        </div>
     </header>

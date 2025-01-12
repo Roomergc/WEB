@@ -1,7 +1,19 @@
 RewriteEngine On
-RewriteBase /citystore/
+RewriteBase /
 
 # Si el archivo o directorio no existe, redirige a index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+# Proteger archivos sensibles
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Prevenir listado de directorios
+Options -Indexes
+
+# Configurar zona horaria
+php_value date.timezone "America/Mexico_City"

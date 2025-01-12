@@ -230,3 +230,37 @@ footer {
     margin-top: auto;
     text-align: center;
 }
+/* css/styles.css (agregar estas reglas) */
+.logo {
+    display: block;
+    max-width: 200px; /* Ajusta según el tamaño deseado */
+}
+
+.logo-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        max-width: 150px; /* Tamaño más pequeño para móviles */
+    }
+    
+    .header-content {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .search-bar {
+        order: 3;
+        width: 100%;
+    }
+}

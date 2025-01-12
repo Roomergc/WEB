@@ -1,30 +1,71 @@
+// includes/funciones.php
 <?php
-function cleanInput($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
+session_start();
+
+function obtenerProductos($db, $categoria = null, $precio_max = null) {
+    try {
+        $sql = "SELECT * FROM productos WHERE 1=1";
+        $params = array();
+
+        if ($categoria) {
+            $sql .= " AND categoria_id = ?";
+            $params[] = $categoria;
+        }
+
+        if ($precio_max) {
+            $sql .= " AND precio <= ?";
+            $params[] = $precio_max;
+        }
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute($params);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch(PDOException $e) {
+        return array();
+    }
 }
 
-function isLoggedIn() {
-    return isset($_SESSION['user_id']);
+function obtenerProducto($db, $id) {
+    try {
+        $stmt = $db->prepare("SELECT * FROM productos WHERE id = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    } catch(PDOException $e) {
+        return null;
+    }
 }
 
-function isAdmin() {
-    return isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin';
+function obtenerCarrito() {
+    return isset($_SESSION['carrito']) ? $_SESSION['carrito'] : array();
 }
 
-function redirect($url) {
-    header("Location: " . BASE_URL . $url);
-    exit();
+function agregarAlCarrito($producto_id, $cantidad) {
+    if (!isset($_SESSION['carrito'])) {
+        $_SESSION['carrito'] = array();
+    }
+    
+    if (isset($_SESSION['carrito'][$producto_id])) {
+        $_SESSION['carrito'][$producto_id] += $cantidad;
+    } else {
+        $_SESSION['carrito'][$producto_id] = $cantidad;
+    }
 }
 
-function generateToken() {
-    return bin2hex(random_bytes(32));
+function calcularTotalCarrito($db) {
+    $total = 0;
+    $carrito = obtenerCarrito();
+    
+    foreach ($carrito as $producto_id => $cantidad) {
+        $producto = obtenerProducto($db, $producto_id);
+        if ($producto) {
+            $total += $producto['precio'] * $cantidad;
+        }
+    }
+    
+    return $total;
 }
 
-function sendEmail($to, $subject, $message) {
-    // Implementar envío de correo usando PHPMailer
-    return true;
+function generarNumeroPedido() {
+    return 'PED-' . date('Ymd') . '-' . substr(uniqid(), -5);
 }
 ?>
