@@ -1,0 +1,232 @@
+/* Reset y variables */
+:root {
+    --primary-color: #4CAF50;
+    --hover-color: #45a049;
+    --border-color: #ddd;
+    --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    --border-radius: 8px;
+    --spacing: 20px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Layout contenedor */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing);
+}
+
+/* Header */
+header {
+    background-color: #fff;
+    box-shadow: var(--box-shadow);
+    padding: 1rem 0;
+    margin-bottom: var(--spacing);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.search-bar {
+    flex-grow: 1;
+    max-width: 600px;
+    position: relative;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+/* Layout principal */
+.main-content {
+    display: flex;
+    gap: var(--spacing);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    background: #fff;
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.filter-section {
+    margin-bottom: var(--spacing);
+}
+
+.filter-section h3 {
+    margin-bottom: 10px;
+}
+
+.category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.price-range {
+    margin-top: var(--spacing);
+}
+
+/* Grid de productos */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--spacing);
+    flex-grow: 1;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    background-color: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-info {
+    padding: var(--spacing);
+}
+
+.product-title {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    width: 100%;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: var(--hover-color);
+}
+
+/* Carrito y detalles del producto */
+.cart-table {
+    background: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: var(--spacing);
+    margin-bottom: var(--spacing);
+}
+
+.cart-summary {
+    background: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: var(--spacing);
+}
+
+/* Formularios */
+.form-container {
+    background: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: var(--spacing);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+/* Confirmación */
+.confirmation-box {
+    background: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: var(--spacing);
+    text-align: center;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.confirmation-box h1 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing);
+}
+
+/* Footer */
+footer {
+    background: #fff;
+    box-shadow: var(--box-shadow);
+    padding: var(--spacing) 0;
+    margin-top: auto;
+    text-align: center;
+}
