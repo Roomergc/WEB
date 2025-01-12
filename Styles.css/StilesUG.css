@@ -1,0 +1,38 @@
+/* Estilo del menú de usuario */
+.user-menu {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    width: 250px;
+    position: fixed;
+    top: 100px; /* Ajustar según el diseño del header */
+    left: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-menu h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #ff6f61;
+}
+
+.user-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.user-menu ul li {
+    margin-bottom: 10px;
+}
+
+.user-menu ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.user-menu ul li a:hover {
+    color: #ff6f61;
+}
