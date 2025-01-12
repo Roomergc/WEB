@@ -19,12 +19,13 @@ body {
 /* Barra lateral */
 .sidebar {
     width: 250px;
-    background-color: #1e5631; /* Verde oscuro */
-    color: #fff;
+    background-color: #fff; /* Fondo blanco */
+    color: #1e5631; /* Texto en verde oscuro */
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    border-right: 3px solid #1e5631; /* Línea verde que separa */
 }
 
 .sidebar .logo {
@@ -33,8 +34,8 @@ body {
 }
 
 .sidebar .logo img {
-    width: 80px;
-    height: 80px;
+    width: 100px; /* Ajuste del tamaño del logo */
+    height: auto;
     margin-bottom: 10px;
 }
 
@@ -49,7 +50,7 @@ body {
 }
 
 .sidebar nav ul li a {
-    color: #fff;
+    color: #1e5631; /* Verde oscuro */
     text-decoration: none;
     font-size: 16px;
     display: block;
@@ -59,16 +60,17 @@ body {
 }
 
 .sidebar nav ul li a:hover {
-    background-color: #278a3a; /* Verde más claro */
+    background-color: #e9f5ea; /* Fondo verde claro al pasar el cursor */
 }
 
 /* Contenido principal */
 .main-content {
     flex-grow: 1;
-    background-color: #e9f5ea; /* Verde claro como fondo */
+    background-color: #e9f5ea; /* Fondo verde claro */
     padding: 20px;
 }
 
+/* Encabezado */
 .header {
     text-align: center;
     margin-bottom: 20px;
@@ -79,6 +81,7 @@ body {
     color: #1e5631; /* Verde oscuro */
 }
 
+/* Tarjetas */
 .cards {
     display: flex;
     justify-content: space-around;
@@ -104,7 +107,7 @@ body {
 .card h3 {
     font-size: 20px;
     margin-bottom: 10px;
-    color: #278a3a; /* Verde más claro */
+    color: #278a3a; /* Verde claro */
 }
 
 .card p {
