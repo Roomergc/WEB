@@ -1,10 +1,10 @@
-
 <?php
 class Database {
     private $host = "localhost";
     private $db_name = "citystore";
     private $username = "root";
-    private $password = "";
+    private $password = ""; 
+
     public $conn;
 
     public function getConnection() {
