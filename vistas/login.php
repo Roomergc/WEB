@@ -37,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <button type="submit">Entrar</button>
   </form>
   <a href="reset_password.php">Olvidé mi contraseña</a>
+  <a href="footer.php">2025 City Store. Todos los derechos reservados.</a>
 </body>
 </div>
 </html>
