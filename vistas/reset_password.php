@@ -68,6 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Restablecer contraseña</title>
 </head>
 <body>
+    <img src="Logo.jpg" alt="Logo City Store" class="logo">
     <?php if (!isset($_GET['token'])): ?>
         <!-- Formulario para enviar el correo -->
         <h2>Restablecer contraseña</h2>
