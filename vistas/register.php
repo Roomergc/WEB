@@ -23,6 +23,7 @@
   </form>
   </div>
 </body>
+<a href="footer.php">2025 City Store. Todos los derechos reservados.</a>
 </html>
 
 <?php
