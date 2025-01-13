@@ -84,5 +84,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <button type="submit">Restablecer contraseña</button>
         </form>
     <?php endif; ?>
+<a href="footer.php">2025 City Store. Todos los derechos reservados.</a>
 </body>
 </html>
