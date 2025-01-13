@@ -19,7 +19,7 @@ $user = $_SESSION['user'];
   <h2>Bienvenid@ a CITY Store</h2> </div>
   <p>Email: <?php echo htmlspecialchars($user['email']); ?></p>
   <a href="logout.php">Cerrar Sesión</a>
-  <a href="indexProyecto.php"></a>
+  <a href="index.php"></a>
   <a href="footer.php">2025 City Store. Todos los derechos reservados.</a>
 </body>
 </html>
