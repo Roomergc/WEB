@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
   <form method="POST">
   <div class="login_img">
-  <img src="logo_citystore.jpg" alt="Logo City Store" class="logo">
+  <img src="Logo.jpg" alt="Logo City Store" class="logo">
     <h2>Iniciar Sesión</h2></div>
     <?php if (!empty($error)) echo "<p>$error</p>"; ?>
     <input type="email" name="email" placeholder="Correo" required>
