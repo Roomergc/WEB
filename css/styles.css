@@ -263,4 +263,32 @@ footer {
         order: 3;
         width: 100%;
     }
+
+     .login{
+    background-color:#4caf50 ;
+  }
+
+  .login_img{
+    text-align: center;
+    background-color: #d32f2f;
+    font-family: Arial;
+    font-size: 15px;
+
+  }
+    
+  .profile_container {
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: #f8d7da; /* Rojo sutil */
+    color: #721c24; /* Texto oscuro */
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+.registro{
+    background-color: #e8fae7;
+    text-align: center;
+
+  }
+  
 }
