@@ -1,4 +1,3 @@
-// includes/funciones.php
 <?php
 session_start();
 
